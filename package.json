@@ -8,7 +8,7 @@
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
     "build": "cd client && npm run build",
-    "publish": "concurrently \"git push\" \"git subtree push --prefix client heroku-client\" \"git subtree push --prefix server heroku-server\""
+    "publish": "concurrently \"git push\" \"git subtree push --prefix client heroku-client main\" \"git subtree push --prefix server heroku-server main\""
   },
   "keywords": [],
   "author": "",
