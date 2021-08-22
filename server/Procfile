@@ -1,1 +1,1 @@
-api: nom i && npm start
+api: npm i && npm start
