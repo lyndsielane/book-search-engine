@@ -1,9 +1,15 @@
-const { Class } = require("../models");
+const { Book, User } = require("../models");
 
 const resolvers = {
   Query: {
-    classes: async () => {
-      return await Class.find({});
+    books: async () => {
+      return await Book.find({}).populate("books").populate({
+        path: "books",
+        populate: "author",
+      });
+    },
+    users: async () => {
+      return await User.find({}).populate("books");
     },
   },
 };
