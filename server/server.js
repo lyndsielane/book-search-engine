@@ -16,7 +16,7 @@ server.applyMiddleware({ app });
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-ap.use(require("./routes"));
+app.use(require("./routes"));
 
 // if we're in production, serve client/build as static assets
 if (process.env.NODE_ENV === "production") {
