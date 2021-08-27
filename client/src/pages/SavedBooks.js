@@ -7,8 +7,8 @@ import {
   Button,
 } from "react-bootstrap";
 import { removeBookId } from "../utils/localStorage";
-import { QUERY_ME } from "../utils/queries";
-import { REMOVE_BOOK } from "../utils/mutations";
+import { QUERY } from "../utils/queries";
+import { REMOVEBOOK } from "../utils/mutations";
 import { useQuery, useMutation } from "@apollo/client";
 
 import Auth from "../utils/auth";
@@ -28,7 +28,7 @@ const SavedBooks = () => {
           return false;
         }
 
-        const response = await getMe(token);
+        const response = await QUERY(token);
 
         if (!response.ok) {
           throw new Error("something went wrong!");
@@ -53,7 +53,7 @@ const SavedBooks = () => {
     }
 
     try {
-      const response = await deleteBook(bookId, token);
+      const response = await REMOVEBOOK(bookId, token);
 
       if (!response.ok) {
         throw new Error("something went wrong!");
